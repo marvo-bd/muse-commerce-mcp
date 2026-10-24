@@ -1,0 +1,17 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.marvo-bd/muse-commerce-mcp",
+  "title": "AisleNode Local Commerce (Meta Muse & Claude MCP)",
+  "description": "Connect Meta Muse and Claude agents to live local retail store shelves and direct checkout.",
+  "repository": {
+    "url": "https://github.com/marvo-bd/muse-commerce-mcp",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://aislenode.soltrixstudios.com/api/mcp"
+    }
+  ]
+}
