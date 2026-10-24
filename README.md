@@ -3,7 +3,8 @@
 **Open-source Model Context Protocol (MCP) bridge connecting Meta Muse, Llama, and Anthropic Claude agents to live neighborhood retail store shelves.**
 
 [![Protocol: AisleNode](https://img.shields.io/badge/Protocol-AisleNode%20v1.0-2563eb)](https://aislenode.soltrixstudios.com)
-[![MCP Compatible](https://img.shields.io/badge/MCP-Stdio%20%26%20HTTP-059669)](https://modelcontextprotocol.io)
+[![Official MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.marvo--bd%2Fmuse--commerce--mcp-059669)](https://registry.modelcontextprotocol.io/?q=muse-commerce-mcp)
+[![Glama MCP Score](https://glama.ai/mcp/servers/marvo-bd/muse-commerce-mcp/badges/score.svg)](https://glama.ai/mcp/servers/marvo-bd/muse-commerce-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-neutral.svg)](./LICENSE)
 
 ---
@@ -61,11 +62,11 @@ Add `muse-commerce-mcp` to your agent configuration file (`claude_desktop_config
 }
 ```
 
-### 2. Direct HTTP Endpoint (For Cloud & Autonomous Agents)
+### 2. Streamable HTTP Endpoint (Official MCP Registry & Remote Agents)
 
-If your agent framework supports direct HTTP tool execution without a local stdio wrapper, query the live production gateway directly:
+Connect directly to the hosted Streamable HTTP MCP server (`io.github.marvo-bd/muse-commerce-mcp`):
 
-- **Endpoint**: `https://aislenode.soltrixstudios.com/api/mcp`
+- **Streamable HTTP / JSON-RPC Endpoint**: `https://aislenode.soltrixstudios.com/api/mcp`
 - **Method**: `POST`
 
 #### Example: Search Local Inventory by GPS Radius
