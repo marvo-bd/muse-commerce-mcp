@@ -1,0 +1,41 @@
+{
+  "name": "muse-commerce-mcp",
+  "version": "1.0.0",
+  "description": "Open-source Model Context Protocol (MCP) server connecting Meta Muse, Llama, and Anthropic Claude agents to live physical retail inventories, non-custodial checkout, and instant courier dispatch via the AisleNode Protocol.",
+  "type": "module",
+  "bin": {
+    "muse-commerce-mcp": "./bin/index.mjs"
+  },
+  "main": "./bin/index.mjs",
+  "scripts": {
+    "start": "node ./bin/index.mjs",
+    "test": "node ./bin/index.mjs --help"
+  },
+  "keywords": [
+    "meta-muse",
+    "muse-agent",
+    "muse-mcp",
+    "model-context-protocol",
+    "mcp",
+    "mcp-server",
+    "agentic-commerce",
+    "local-retail",
+    "aislenode",
+    "llama",
+    "claude"
+  ],
+  "author": "Soltrix Studios <aislenode@soltrixstudios.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marvo-bd/muse-commerce-mcp.git"
+  },
+  "homepage": "https://aislenode.soltrixstudios.com",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4",
+    "zod": "^3.23.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

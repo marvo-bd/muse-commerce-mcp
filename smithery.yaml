@@ -1,0 +1,18 @@
+# Start command for Smithery.ai MCP registry
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties:
+      endpoint:
+        type: string
+        description: Optional custom AisleNode MCP endpoint URL
+        default: https://aislenode.soltrixstudios.com/api/mcp
+  commandFunction: |-
+    (config) => ({
+      command: 'node',
+      args: ['./bin/index.mjs'],
+      env: {
+        AISLENODE_MCP_ENDPOINT: config.endpoint || 'https://aislenode.soltrixstudios.com/api/mcp'
+      }
+    })
