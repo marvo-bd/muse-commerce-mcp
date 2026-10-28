@@ -9,7 +9,7 @@
   "main": "./bin/index.mjs",
   "scripts": {
     "start": "node ./bin/index.mjs",
-    "test": "node ./bin/index.mjs --help"
+    "test": "node --test ./test/server.test.mjs"
   },
   "keywords": [
     "meta-muse",
@@ -32,8 +32,7 @@
   },
   "homepage": "https://aislenode.soltrixstudios.com",
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.4",
-    "zod": "^3.23.8"
+    "@modelcontextprotocol/sdk": "^1.0.4"
   },
   "engines": {
     "node": ">=18.0.0"

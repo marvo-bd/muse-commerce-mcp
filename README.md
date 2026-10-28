@@ -5,6 +5,7 @@
 [![Protocol: AisleNode](https://img.shields.io/badge/Protocol-AisleNode%20v1.0-2563eb)](https://aislenode.soltrixstudios.com)
 [![Official MCP Registry](https://img.shields.io/badge/MCP%20Registry-io.github.marvo--bd%2Fmuse--commerce--mcp-059669)](https://registry.modelcontextprotocol.io/?q=muse-commerce-mcp)
 [![Glama MCP Score](https://glama.ai/mcp/servers/marvo-bd/muse-commerce-mcp/badges/score.svg)](https://glama.ai/mcp/servers/marvo-bd/muse-commerce-mcp)
+[![M8ven Verified](https://m8ven.ai/badge/mcp/marvo-bd/muse-commerce-mcp?variant=verified)](https://m8ven.ai/mcp/marvo-bd/muse-commerce-mcp?s=readme)
 [![License: MIT](https://img.shields.io/badge/License-MIT-neutral.svg)](./LICENSE)
 
 ---
