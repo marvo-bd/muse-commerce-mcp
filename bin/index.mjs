@@ -40,8 +40,23 @@ const server = new Server(
   }
 );
 
-async function callProtocol(action, params) {
-  const response = await fetch(ENDPOINT, {
+const RATE_LIMIT_WINDOW_MS = 60_000;
+const RATE_LIMIT_MAX_REQUESTS = 60;
+const requestTimestamps = [];
+
+export function checkRateLimit(now = Date.now()) {
+  while (requestTimestamps.length > 0 && now - requestTimestamps[0] >= RATE_LIMIT_WINDOW_MS) {
+    requestTimestamps.shift();
+  }
+  if (requestTimestamps.length >= RATE_LIMIT_MAX_REQUESTS) {
+    throw new Error('Rate limit exceeded: maximum 60 requests per minute');
+  }
+  requestTimestamps.push(now);
+}
+
+export async function callProtocol(action, params, fetchImpl = fetch) {
+  checkRateLimit();
+  const response = await fetchImpl(ENDPOINT, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -213,6 +228,21 @@ export const TOOLS = [
   },
 ];
 
+export const TOOL_HANDLERS = {
+  search_catalog: async (args, fetchImpl) => callProtocol('search_catalog', args, fetchImpl),
+  create_order: async (args, fetchImpl) => callProtocol('create_order', args, fetchImpl),
+  check_order_status: async (args, fetchImpl) => callProtocol('check_order_status', args, fetchImpl),
+  report_store: async (args, fetchImpl) => callProtocol('report_store', args, fetchImpl),
+};
+
+export async function executeTool(name, args = {}, fetchImpl = fetch) {
+  const handler = TOOL_HANDLERS[name];
+  if (!handler) {
+    throw new Error(`Unknown tool: ${name}`);
+  }
+  return handler(args, fetchImpl);
+}
+
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: TOOLS,
@@ -223,7 +253,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
 
   try {
-    const result = await callProtocol(name, args || {});
+    const result = await executeTool(name, args || {});
     return {
       content: [
         {
